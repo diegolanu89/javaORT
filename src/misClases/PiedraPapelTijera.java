@@ -28,14 +28,15 @@ public class PiedraPapelTijera {
                  opcionBartolo = inputOpcion("Elección de Bartolo:");
                  resultado = ganador(opcionAna,opcionBartolo);
                  switch(resultado){
-                     case ANA:ptsAna++;ganador=ANA;
-                     case BARTOLO:ptsBartolo++;ganador=BARTOLO;
-                     case EMPATE:ganador=EMPATE;
+                     case ANA:ptsAna++;
+                     break;
+                     case BARTOLO:ptsBartolo++;
+                     break;
                  }
-                 if(ganador!=EMPATE)
-                     System.out.printf("Ganador de la Ronda: %s\n",ganador);
+                 if(resultado.equals(EMPATE))
+                	 System.out.printf("Se empata esta Ronda\n");
                  else    
-                     System.out.printf("Se empata esta Ronda\n");
+                	 System.out.printf("Ganador de la Ronda: %s\n",resultado);
              }
          
          if(ptsAna>ptsBartolo){
@@ -73,16 +74,16 @@ public class PiedraPapelTijera {
     }
 
     public String ganador(String opcionAna,String opcionBartolo){
-        if(opcionAna==opcionBartolo)return EMPATE;
+        if(opcionAna.equals(opcionBartolo))return EMPATE;
         switch(opcionAna){
             case(PIEDRA):
-                    if(opcionBartolo == TIJERA)return ANA;
+                    if(opcionBartolo.equals(TIJERA))return ANA;
                 break;
             case(PAPEL):
-                    if(opcionBartolo == PIEDRA)return ANA;
+                    if(opcionBartolo.equals(PIEDRA))return ANA;
                 break;
             case(TIJERA):
-                    if(opcionBartolo == PAPEL)return ANA;
+                    if(opcionBartolo.equals(PAPEL))return ANA;
                 break;
         }
         return BARTOLO;
